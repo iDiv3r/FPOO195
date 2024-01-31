@@ -1,6 +1,12 @@
-numero = int(input("Escribe la tabla que quieras conocer \n"))
-contador = 1
+i = 1
 
-while contador <= 10 :
-    print(numero, "x", contador, "=", numero*contador )
-    contador += 1
+while i <= 10 :
+    
+    j = 1
+    
+    while j <= 10:
+        print(i,"x",j,"=",i*j,)
+        j += 1
+    
+    print("\n \n")
+    i += 1        
