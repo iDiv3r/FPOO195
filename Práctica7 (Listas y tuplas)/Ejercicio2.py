@@ -1,10 +1,10 @@
 import random
 
-lista = list(30)
+lista = []
 
 i = 0
 while i < 30:
-    lista[i] = random.randrange(10,20)
+    lista.append(random.randrange(10,20))
     i += 1
     
 
