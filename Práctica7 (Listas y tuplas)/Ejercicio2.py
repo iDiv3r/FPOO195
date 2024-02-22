@@ -56,6 +56,8 @@ while i < 30:
 
 numRep = (contRepeticiones(lista))
 
+print("La lista es:", lista)
+
 while True:
     print("Selecciona una opcion \n")
     print("1-Contar numeros repetidos")
