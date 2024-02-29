@@ -20,15 +20,15 @@ arma = Arma()
 
 # Atributos del Spartan
 print("-- El Spartan contiene --")
-print(spartan.nombre)
-print(spartan.especie)
-print(spartan.altura)
+print(spartan.getNombre())
+print(spartan.getEspecie())
+print(spartan.getAltura())
 
 # Atributos del Némesis
 print("-- El Némesis contiene --")
-print(nemesis.nombre)
-print(nemesis.especie)
-print(nemesis.altura)
+print(nemesis.getNombre())
+print(nemesis.getEspecie())
+print(nemesis.getAltura())
 
 # Métodos del Spartan
 print("-- Métodos del Spartan --")
@@ -43,5 +43,5 @@ nemesis.lanzarGranada()
 print("\n")
 
 # Métodos del arma
-arma.seleccionarArma(spartan.nombre)
+arma.seleccionarArma(spartan.getNombre())
 arma.recargarArma(50)
