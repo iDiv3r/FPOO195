@@ -3,7 +3,7 @@ from Usuario import *
 class CRUD:
     
     __usuarios = []
-    
+            
     def crearUsuario(self,usuario):
         self.__usuarios.append(usuario)
     
@@ -26,8 +26,6 @@ class CRUD:
                         usuario.setEdad(atribN)
                     case _:
                         break
-                
-                
     
     def consultarUsuarios(self):
         return self.__usuarios

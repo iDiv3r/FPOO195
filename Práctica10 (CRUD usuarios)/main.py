@@ -5,8 +5,7 @@ app = CRUD()
 
 while True:
     
-    opcion = int(input(
-        '---------------------------------------------------------- \n Bienvenido al CRUD de usuarios, selecciona una opcion \n 1- Crear un usuario \n 2- Eliminar un usuario \n 3- Editar un usuario \n 4- Consultar todos los usuarios \n 5- Consultar usuario \n 6- Salir \n'))
+    opcion = int(input('---------------------------------------------------------- \n Bienvenido al CRUD de usuarios, selecciona una opcion \n 1- Crear un usuario \n 2- Eliminar un usuario \n 3- Editar un usuario \n 4- Consultar todos los usuarios \n 5- Consultar usuario \n 6- Salir \n'))
     
     
     match opcion:
@@ -43,7 +42,7 @@ while True:
                     atribN = int(input('Escriba la nueva edad \n'))
                 case _:
                     print('error')
-                
+            
             app.editarUsuario(nombreB, atribN, atributo)
             
             print('Se ha actualizado el usuario', nombreB,'\n')
@@ -60,7 +59,6 @@ while True:
             usuario = app.consultarUsuario(nombreB)
             
             print('Los datos del usuario son: \n Nombre:', usuario.getNombre(), '\n Correo:',usuario.getCorreo(),'\n Contraseña:', usuario.getContraseña(),'\n Edad:', usuario.getEdad(),'\n' )
-            
             
         case 6:
             break
