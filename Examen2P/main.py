@@ -69,12 +69,5 @@ btnGenerar = Button(fondo,text="Crear contraseña",bg='lightgray',command=lambda
 btnGenerar.configure(width='15',height='1')
 btnGenerar.place(x='10',y='270')
 
-#---
-
-txtNueva = Entry(fondo)
-txtNueva.configure(width='30')
-txtNueva.place(x='10',y='240')
-
-
 
 Interfaz.mainloop()
