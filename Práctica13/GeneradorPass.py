@@ -7,7 +7,7 @@ class GeneradorPass:
     numeros = string.digits
     letrasMayus = string.ascii_uppercase
     caracteresEspeciales = string.punctuation   
-
+    
 
     def generarContraseña(self,especiales, mayusculas,longitud):
         
