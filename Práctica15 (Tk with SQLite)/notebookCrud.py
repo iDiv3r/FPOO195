@@ -1,6 +1,15 @@
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
+from Controlador import *
+
+# Crear una nueva instancia de la clase controlador
+controlador = Controlador()
+
+def ejecutarInsert():
+    controlador.insertarUsuario(nombreR.get(),correoR.get(),passwordR.get())
+    
+
 
 # 1- Crear la ventana 
 Ventana = Tk()
@@ -42,5 +51,8 @@ Entry(view1,textvariable=correoR).pack()
 passwordR = StringVar()
 Label(view1,text="Contraseña:").pack()
 Entry(view1,textvariable=passwordR).pack()
+
+Button(view1,text="Guardar usuario",command=ejecutarInsert).pack()
+
 
 Ventana.mainloop()
