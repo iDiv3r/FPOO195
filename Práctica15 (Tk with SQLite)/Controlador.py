@@ -23,7 +23,7 @@ class Controlador:
 
 
     def insertarUsuario(self,nombre,correo,contraseña):
-
+        
         conexion = self.conexion()
         
         if(nombre == "" or correo == "" or contraseña == "" ):
@@ -32,14 +32,13 @@ class Controlador:
             conexion.close()
             
         else:
-
             cursor = conexion.cursor()
             
             passwordH = self.encriptaPass(contraseña)
             
             datos = (nombre,correo,passwordH)
             
-            sqlInsert = "insert into tbUsuarios(nombre,correo,password) values (?,?,?)"
+            sqlInsert = 'INSERT INTO tbUsuarios(nombre,correo,password) values (?,?,?)'
             
             cursor.execute(sqlInsert,datos) 
             
@@ -47,4 +46,30 @@ class Controlador:
             conexion.close()
             
             messagebox.showinfo("Exito","Un nuevo papu apareció en papulandia.")
+    
+    
+    
+    def buscarUsuario(self,id):
+        conexion = self.conexion()
         
+        if id <= 0 :
+            
+            messagebox.showwarning("Cuidado","Introduzca un id válido.")
+            conexion.close()
+            
+        else:
+            try:
+                cursor = conexion.cursor()
+                
+                sqlInsert = 'select * from tbUsuarios where id = ' + str(id)
+                
+                cursor.execute(sqlInsert) 
+                
+                datos = cursor.fetchall()
+                
+                conexion.close()
+                
+                return datos
+
+            except sqlite3.OperationalError:
+                print("Error en la búsqueda")
