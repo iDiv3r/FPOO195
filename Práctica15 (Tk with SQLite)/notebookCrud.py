@@ -19,14 +19,24 @@ def buscarUsuario():
     else:
         resultadoB.delete("1.0",END)
         
-        for dato in resultado:
-            resultadoB.insert(END,str(dato) + "\n")
+        resultadoB.insert(END,"Id: " + str(resultado[0]) + "\n" + "Nombre: " + str(resultado[1]) + "\n" +"Correo: " + str(resultado[2]) + "\n" + "Contaseña: " + str(resultado[3]) + "\n")
 
+def consultarUsuarios():
+    consulta = controlador.consultarUsuarios()
+    
+    for item in tabla.get_children():
+        tabla.delete(item)
+
+    i = 0
+    for usuario in consulta:
+        tabla.insert("",'end',text=str(consulta[i][0],),values=(consulta[i][1],consulta[i][2],consulta[i][3]))
+        i += 1
+        
 
 # 1- Crear la ventana 
 Ventana = Tk()
 Ventana.title("CRUD de usuarios")
-Ventana.geometry("500x300")
+Ventana.geometry("700x500")
 
 
 # 2- Preparar el notebook para pestañas
@@ -79,15 +89,32 @@ Entry(view2,textvariable=idB).pack()
 
 Label(view2,text="").pack()
 
-Button(view2,text="Consultar usuario",command=buscarUsuario).pack()
+Button(view2,text="Buscar usuario",command=buscarUsuario).pack()
 
 Label(view2,text="Resultado").pack()
 resultadoB = Text(view2,height=5,width=52)
 resultadoB.pack()
 
 
+# 7 - Pestaña 3 (Consultar usuarios)
+Label(view3,text="Consultar Usuarios",fg="Blue", font=("Papyrus",18)).pack()
+
+tabla = ttk.Treeview(view3,columns=("Nombre","Correo","Contraseña"))
+
+tabla.column("#0",width=50)
+tabla.column("Nombre",width=150)
+tabla.column("Correo",width=150)
+
+tabla.heading("#0",text="Id")
+tabla.heading("Nombre",text="Nombre")
+tabla.heading("Correo",text="Correo")
+tabla.heading("Contraseña",text="Contraseña")
 
 
+tabla.pack()
 
+Label(view3,text="").pack()
+
+boton = Button(view3,text="Consultar usuarios",command=consultarUsuarios).pack() 
 
 Ventana.mainloop()

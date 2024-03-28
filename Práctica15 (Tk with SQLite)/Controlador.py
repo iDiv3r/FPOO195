@@ -65,7 +65,7 @@ class Controlador:
                 
                 cursor.execute(sqlInsert) 
                 
-                datos = cursor.fetchall()
+                datos = cursor.fetchone()
                 
                 conexion.close()
                 
@@ -73,3 +73,24 @@ class Controlador:
 
             except sqlite3.OperationalError:
                 print("Error en la búsqueda")
+    
+    
+    def consultarUsuarios(self):
+        
+        conexion = self.conexion()
+        
+        try:
+            cursor = conexion.cursor()
+            
+            sqlInsert = 'select * from tbUsuarios '
+            
+            cursor.execute(sqlInsert) 
+            
+            datos = cursor.fetchall()
+            
+            conexion.close()
+            
+            return datos
+
+        except sqlite3.OperationalError:
+            print("Error en la consulta")
